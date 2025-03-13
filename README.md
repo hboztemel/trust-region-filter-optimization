@@ -1,8 +1,10 @@
 # Trust Region Filter (TRF) Optimization Framework
 
-**Author:** Hikmet Batuhan Oztemel
-
 This repository is part of a Master's degree thesis project in the Chemical Engineering Department of Politecnico di Milano. 
+
+**Project:** Comparative analysis of trust region filter methods with different mathematical models in surrogate-based optimization
+**Author:** Hikmet Batuhan Oztemel
+**Supervisor:** Prof. Flavio Manenti
 
 ## Project Overview
 
