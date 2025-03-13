@@ -72,7 +72,7 @@ Contains resources related to the Aspen Plus simulation used in the TRF optimiza
 
 ## References
 
-[1] Giulia Bozzano and Flavio Manenti. Efficient methanol synthesis: Perspectives, technologies and optimization strategies. *Prog. Energy Combust. Sci., 56*, 71–105, 2016.
+[1] Bozzano, G., & Manenti F. (2016). Efficient methanol synthesis: Perspectives, technologies and optimization strategies. *Prog. Energy Combust. Sci., 56*, 71–105.
 
 [2] Eason, J. P., & Biegler, L. T. (2016). A trust region filter method for glass box/black box optimization. *AIChE Journal, 62*(9), 3124–3136.
 
