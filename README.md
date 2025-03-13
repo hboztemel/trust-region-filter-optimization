@@ -1,87 +1,82 @@
-
 # Trust Region Filter (TRF) Optimization Framework
 
-This repository contains the implementation of the Trust Region Filter (TRF) optimization framework for 1) Reduced Trust Region Filter and 1) Modified Trust Region Filter, focusing on adaptive mechanisms, Aspen Plus simulation integrations, and reduced models. The repository is structured for modularity and scalability, with clear separation of functionality into relevant folders [1][2].
+## Project Overview
+
+Process optimization is a crucial discipline for increasing production efficiency and reducing operational costs. This project focuses on applying Trust Region Filter (TRF) methods in surrogate-based optimization (SBO) for chemical process optimization. The study evaluates different TRF algorithm variations, including Reduced TRF, Modified TRF, and Demand-Based TRF, in an Aspen Plus simulation of a methanol synthesis plant. These methodologies help improve computational efficiency and optimization performance while integrating complex surrogate models.
 
 ---
 
-## **Folder Structure**
+## **Repository Structure**
 
-### 1. `aspen_plus_simulation/`
-This folder contains resources and backups related to the Aspen Plus simulations used in the TRF optimization process.
+### 1. `Thesis_Polimi/`
+Contains the executive summary report of the thesis.
+- **`2025_03_Oztemel_ExecutiveSummary.pdf`**: Summary report of the thesis project.
 
+---
+
+### 2. `src/`
+The main source folder containing Aspen Plus simulations, TRF algorithm implementations, and supporting files.
+
+#### a) `demand_based_trust_region_filter_method/`
+Contains the implementation of the **Demand-Based Trust Region Filter (DMTRF)**.
+
+- **`DMTRF_Functions.py`**: Core functions used in the DMTRF algorithm.
+- **`DMTRF_Optimizer.py`**: Optimization script for running DMTRF.
+- **`ProcessFunctions.py`**: General process-related functions.
+- **`SurrogateModels.py`**: Surrogate model implementations for DMTRF.
+
+---
+
+#### b) `modified_trust_region_filter_method/`
+Contains the implementation of the **Modified Trust Region Filter (MTRF)**.
+
+- **`MTRF_Functions.py`**: Core functions used in the MTRF algorithm.
+- **`MTRF_Optimizer.py`**: Optimization script for running MTRF.
+- **`ProcessFunctions.py`**: General process-related functions.
+- **`SurrogateModels.py`**: Surrogate model implementations for MTRF.
+
+---
+
+#### c) `reduced_trust_region_filter_method/`
+Contains the implementation of the **Reduced Trust Region Filter (RTRF)**.
+
+- **`RTRF_Functions.py`**: Core functions used in the RTRF algorithm.
+- **`RTRF_Optimizer.py`**: Optimization script for running RTRF.
+- **`ProcessFunctions.py`**: General process-related functions.
+- **`SurrogateModels.py`**: Surrogate model implementations for RTRF.
+
+---
+
+#### d) `aspen_plus_simulation/`
+Contains resources related to the Aspen Plus simulation used in the TRF optimization process. However, simulation files are not included in this repository due to licensing and copyright restrictions, as they are proprietary to AspenTech and used under a license granted to Politecnico di Milano.
+
+- **`AspenPlusModel.py`**: Python script for interfacing with Aspen Plus.
 - **`MEOH_synthesis_plant.bkp`**: Backup file of the methanol synthesis plant simulation.
-
----
-
-### 2. `automations/`
-Contains scripts to automate key processes, such as generating samples, calculating coefficients, and integrating with Aspen Plus.
-
-- **`FORTRAN_calculator.py`**: Automates the creation of FORTRAN-based models for Aspen Plus integration.
-- **`poly2_beta_coeff_calculator.py`**: Computes the beta coefficients for second-order polynomial regression.
-- **`sampling_generator.py`**: Generates sampling points for use in optimization and sensitivity analysis.
-
----
-
-### 3. `src/`
-The main source folder containing all core algorithms and models.
-
-#### a) `algorithms/`
-Contains implementations of the trust region filter algorithm and its variants.
-
-##### i) `reduced_trust_region_filter/`
-Implements the **Reduced Trust Region Filter (RTRF) Method** with supportting functionalities. Eason and Biegler (2016) introduced the reduced method in the literature [1].
-
-##### ii) `modified_trust_region_filter/`
-Implements the **Modified Trust Region Filter (MTRF) Method** with various adaptive mechanisms and supporting functionalities. Eason and Biegler (2018) introduced the modified method in the literature [2].
-
-##### iii) `demandbased_trust_region_filter/`
-Implements the **Demand-Based Trust Region Filter (DMTRF)** with simplified framework and supporting functionalities. Yoshio and Biegler (2021) introduced the demand-based method in an industrial scale cholorobenzene process [3].
-
----
-
-#### b) `applications/`
-Contains Jupyter notebooks for applying the TRF framework with Aspen Plus simulations.
-
-- **`RTRF_Optimizer.py`**: Demonstrates the reduced TRF implementation with Aspen Plus integration.
-- **`MTRF_Optimizer.py`**: Demonstrates the modified TRF implementation with Aspen Plus integration.
-- **`DMTRF_Optimizer.py`**: Demonstrates the demand-based TRF implementation with Aspen Plus integration.
-
----
-
-#### c) Surrogate-Based Optimization: `SurrogateModels.py/`
-Contains surrogate models and regression implementations used in the TRF framework.
-
-- **`LR`**: Linear regression.
-- **`2PR`**: Second-order polynomial regression.
-- **`2PRRIDGE`**: Ridge regression using second-order polynomial features.
-- - **`KRIGING`**: Kriging model for surrogate-based optimization.
 
 ---
 
 ## **How to Use**
 
-1. **Setup**: Clone the repository and install the required dependencies from `requirements.txt` **(TBD!)**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+1. **Aspen Plus Integration**: Use files from `aspen_plus_simulation/` to set up Aspen Plus simulation models.
 
-2. **Aspen Plus Integration**: Use files from `automations/` and `aspen_plus_simulation/` to set up Aspen Plus simulation models.
+2. **Run Algorithms**:
+   - For **Demand-Based TRF**, use files from `src/demand_based_trust_region_filter_method/`.
+   - For **Modified TRF**, use files from `src/modified_trust_region_filter_method/`.
+   - For **Reduced TRF**, use files from `src/reduced_trust_region_filter_method/`.
 
-3. **Run Algorithms**:
-   - For **Modified TRF**, use files from `src/algorithms/modified_trust_region_filter/`.
-   - For **Reduced TRF**, use files from `src/algorithms/reduced_trust_region_filter/`.
+4. **Apply Surrogate Models**: Implement surrogate models from `SurrogateModels.py` in each algorithm folder as needed.
 
-4. **Apply Surrogate Models**: Implement surrogate models from the `reduced_models/` folder as needed.
-
-5. **Analyze Results**: Use notebooks in the `applications/` folder to analyze optimization results.
+5. **Analyze Results**: Run optimization scripts (`*_Optimizer.py`) to analyze results for each method.
 
 ---
 
 ## References
 
-[1] Eason, J. P., & Biegler, L. T. (2016). A trust region filter method for glass box/black box optimization. *AIChE Journal, 62*(9), 3124–3136. (https://doi.org/10.1002/aic.15325)
+[1] Giulia Bozzano and Flavio Manenti. Efficient methanol synthesis: Perspectives, technologies and optimization strategies. *Prog. Energy Combust. Sci., 56*, 71–105, 2016.
 
-[2] Eason, J. P., & Biegler, L. T. (2018). Advanced trust region optimization strategies for glass box/black box models. *AIChE Journal, 64*(11), 3934–3943. (https://doi.org/10.1002/aic.16364)
+[2] Eason, J. P., & Biegler, L. T. (2016). A trust region filter method for glass box/black box optimization. *AIChE Journal, 62*(9), 3124–3136.
 
-[3] Yoshio, N., & Biegler, L. T. (2021). Demand-based optimization of a chlorobenzene process with high-fidelity and surrogate reactor models under trust region strategies}. *AIChE Journal, 67*(1), e17054. (https://doi.org/10.1002/aic.17054)
+[3] Eason, J. P., & Biegler, L. T. (2018). Advanced trust region optimization strategies for glass box/black box models. *AIChE Journal, 64*(11), 3934–3943.
+
+[4] Yoshio, N., & Biegler, L. T. (2021). Demand-based optimization of a chlorobenzene process with high-fidelity and surrogate reactor models under trust region strategies. *AIChE Journal, 67*(1), e17054.
+
