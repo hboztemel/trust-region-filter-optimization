@@ -2,7 +2,7 @@
 
 This repository is part of a Master's degree thesis project in the Chemical Engineering Department of Politecnico di Milano. 
 
-**Project:** Comparative analysis of trust region filter methods with different mathematical models in surrogate-based optimization
+**Project Name:** Comparative analysis of trust region filter methods with different mathematical models in surrogate-based optimization
 
 **Author:** Hikmet Batuhan Oztemel
 
