@@ -1,5 +1,9 @@
 # Trust Region Filter (TRF) Optimization Framework
 
+**Author:** Hikmet Batuhan Oztemel
+
+This repository is part of a Master's degree thesis project in the Chemical Engineering Department of Politecnico di Milano. 
+
 ## Project Overview
 
 Process optimization is a crucial discipline for increasing production efficiency and reducing operational costs. This project focuses on applying Trust Region Filter (TRF) methods in surrogate-based optimization (SBO) for chemical process optimization. The study evaluates different TRF algorithm variations, including Reduced TRF, Modified TRF, and Demand-Based TRF, in an Aspen Plus simulation of a methanol synthesis plant. These methodologies help improve computational efficiency and optimization performance while integrating complex surrogate models.
